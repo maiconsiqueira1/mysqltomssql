@@ -25,7 +25,8 @@ ocsdb = pymysql.connect(mysqlserver, mysqluser, mysqlpwd, mysqldbname)
 cursormysql = ocsdb.cursor()
 
 # execute SQL query using execute() method.
-cursormysql.execute("select distinct accountinfo.TAG , hardware.NAME ,hardware.USERID, hardware.OSNAME , networks.MACADDR, accountinfo.HARDWARE_ID from ocsweb.accountinfo inner join hardware on accountinfo.HARDWARE_ID = hardware.ID inner join networks on accountinfo.HARDWARE_ID = networks.HARDWARE_ID;")
+cursormysql.execute("select distinct accountinfo.TAG , hardware.NAME ,hardware.USERID, hardware.OSNAME , networks.MACADDR, accountinfo.HARDWARE_ID \
+	from ocsweb.accountinfo inner join hardware on accountinfo.HARDWARE_ID = hardware.ID inner join networks on accountinfo.HARDWARE_ID = networks.HARDWARE_ID;")
 
 resultmysql = cursormysql.fetchall()
 
